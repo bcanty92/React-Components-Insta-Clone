@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useState } from "react";
 import Post from './Post';
 import './Posts.css';
+import dummyData from "./dummy-data";
 
-const Posts = (props) => {
-  // 🔥 Make sure the parent of Posts is passing the right props!
-  const { likePost, posts } = props;
+const Posts = () => {
+  const [data] = useState(dummyData);
+  console.log(data);
+
+  // const Posts = (props) => {
+  // // 🔥 Make sure the parent of Posts is passing the right props!
+  // const { posts, setPosts} = props;
 
   return (
-    <div className='posts-container-wrapper'>
-      {/* Map through the posts array returning a Post component at each iteration */}
-      {/* Check the implementation of Post to see what props it requires! */}
-   
-    {data.map(item => {
-      return <Post post={item} />;
+    <div className="posts-container-wrapper">
+    {/* map through data here to return a Post and pass data as props to Post */}
+    {data.map(post => {
+      return <Post post={post} />
     })}
-    </div>
-  );
+  </div>
+)
 };
 
 export default Posts;
